@@ -11,11 +11,11 @@ HOST_OS  = GF_LINUX_HOST_OS
 # You shouldn't need to change anything below here.
 
 CFLAGS	= -fPIC -Wall -O0 -g \
-	  -DHAVE_CONFIG_H -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D$(HOST_OS) \
+	  -D_HAVE_CONFIG_H -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D$(HOST_OS) \
 	  -I$(GLFS_SRC) -I$(GLFS_SRC)/libglusterfs/src \
 	  -I$(GLFS_SRC)/contrib/uuid -I.
 LDFLAGS	= -shared -nostartfiles -L$(GLFS_ROOT) -lglusterfs \
-	  -lpthread -lpython2.6
+	  -lpthread -lpython2.7
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
